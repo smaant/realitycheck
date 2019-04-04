@@ -22,5 +22,6 @@ workflows:
       - on_test_tag_only:
           filters:
             tags:
-              only: /^test-tag/      
+              only:
+                - /^test-tag/      
       - always
