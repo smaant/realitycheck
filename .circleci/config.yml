@@ -236,4 +236,15 @@ workflows:
             - hold
           filters:
             branches:
-              only: test-branch  
+              only: test-branch
+              
+  scheduled:
+    triggers:
+      - schedule:
+          cron: "* * * * *"
+          filters:
+            branches:
+              only: master
+    jobs:
+      - contexts:
+          context: org-global      
