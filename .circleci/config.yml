@@ -205,7 +205,7 @@ workflows:
 
   feature_jobs:
     jobs:
-      - save_and_restore_cache
+      - save_and_restore_cache:
           filters:
             tags:
               only: /^test-tag/      
