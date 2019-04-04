@@ -210,6 +210,9 @@ workflows:
       - save_and_restore_cache:
           requires:
             - hold
+          filters:
+            tags:
+              only: test-tag
       - contexts:
           context: org-global
           requires:
