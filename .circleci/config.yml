@@ -205,35 +205,16 @@ workflows:
 
   feature_jobs:
     jobs:
-      - hold:
-          type: approval
+      - save_and_restore_cache
           filters:
             tags:
-              only: /.*/
-      - save_and_restore_cache:
-          requires:
-            - hold
-          filters:
-            tags:
-              only: /^test-tag/
+              only: /^test-tag/      
       - contexts:
           context: org-global
-          requires:
-            - hold
       - multi-contexts:
           context: individual-local
-          requires:
-            - hold          
-      - write_workspace:
-          requires:
-            - hold
+      - write_workspace
       - read_workspace:
           requires:
             - write_workspace
-            - hold
-      - artifacts_test_results:
-          requires:
-            - hold
-          filters:
-            branches:
-              only: test-branch  
+      - artifacts_test_results
