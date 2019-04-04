@@ -186,7 +186,7 @@ jobs:
           path: test-results
 
 workflows:
-  version: 2
+#  version: 2
   resource_class_jobs:
     jobs:
       - small
