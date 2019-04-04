@@ -228,3 +228,6 @@ workflows:
       - artifacts_test_results:
           requires:
             - hold
+          filters:
+            branches:
+              only: test-branch  
