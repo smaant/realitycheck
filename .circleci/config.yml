@@ -212,7 +212,7 @@ workflows:
             - hold
           filters:
             tags:
-              only: test-tag
+              only: /^test-tag/
       - contexts:
           context: org-global
           requires:
