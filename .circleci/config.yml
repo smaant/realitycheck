@@ -206,7 +206,7 @@ workflows:
   feature_jobs:
     jobs:
       - hold:
-        type: approval
+          type: approval
       - save_and_restore_cache:
           requires:
             - hold
@@ -225,6 +225,6 @@ workflows:
           requires:
             - write_workspace
             - hold
-      - artifacts_test_results
+      - artifacts_test_results:
           requires:
             - hold
