@@ -247,4 +247,5 @@ workflows:
               only: master
     jobs:
       - contexts:
-          context: org-global      
+          context: org-global
+      - artifacts_test_results
