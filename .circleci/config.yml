@@ -186,7 +186,8 @@ jobs:
           path: test-results
 
 workflows:
-#  version: 2
+  version: 2
+  
   resource_class_jobs:
     jobs:
       - small
@@ -204,13 +205,26 @@ workflows:
 
   feature_jobs:
     jobs:
-      - save_and_restore_cache
+      - hold:
+        type: approval
+      - save_and_restore_cache:
+          requires:
+            - hold
       - contexts:
           context: org-global
+          requires:
+            - hold
       - multi-contexts:
           context: individual-local
-      - write_workspace
+          requires:
+            - hold          
+      - write_workspace:
+          requires:
+            - hold
       - read_workspace:
           requires:
             - write_workspace
+            - hold
       - artifacts_test_results
+          requires:
+            - hold
