@@ -238,13 +238,13 @@ workflows:
             branches:
               only: test-branch
               
-  scheduled:
-    triggers:
-      - schedule:
-          cron: "0 * * * *"
-          filters:
-            branches:
-              only: master
+#   scheduled:
+#     triggers:
+#       - schedule:
+#           cron: "0 * * * *"
+#           filters:
+#             branches:
+#               only: master
     jobs:
       - contexts:
           context: org-global
