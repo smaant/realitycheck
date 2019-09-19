@@ -209,7 +209,7 @@ jobs:
       - store_test_results:
           path: test-results
           
-      - run: env | echo CONTEXT_END_TO_END_TEST_VAR
+      - run: env | grep CONTEXT_END_TO_END_TEST_VAR
 
 workflows:
   version: 2
